@@ -1,0 +1,131 @@
+/* ============================================================================
+   GLOBAL STYLES: src/index.css
+   ============================================================================
+   Global styling for the cinematic jungle portfolio
+   - Dark theme base
+   - Smooth animations
+   - Typography
+   - Layout foundation
+   ============================================================================ */
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-fg: #ffffff;
+  --color-accent: #2d5a3d;
+  --color-text-muted: #888888;
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-fg);
+}
+
+/* App Container */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #0f1419 100%);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Scrollbar Styling (subtle) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d7a4d;
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-fg);
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtitleSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-in-out;
+}

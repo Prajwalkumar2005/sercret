@@ -1,0 +1,169 @@
+/* ============================================================================
+   LOADER STYLES: src/ui/Loader.css
+   ============================================================================
+   Styling for the beautiful loading screen
+   - Cinematic animation
+   - Premium minimal design
+   - Smooth transitions
+   ============================================================================ */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #0f1419 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: loaderFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.loader-title {
+  animation: titleSlideUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+@keyframes titleSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loader-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.loader-title p {
+  font-size: 0.95rem;
+  color: #888888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* Animated Loading Rings */
+.loader-animation {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  animation: rotationAnim 3s linear infinite;
+}
+
+@keyframes rotationAnim {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-ring {
+  position: absolute;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top-color: #2d5a3d;
+  width: 100%;
+  height: 100%;
+}
+
+.loader-ring:nth-child(1) {
+  animation: spin1 2s linear infinite;
+}
+
+.loader-ring:nth-child(2) {
+  width: 70%;
+  height: 70%;
+  top: 5px;
+  left: 5px;
+  animation: spin2 3s linear infinite reverse;
+  border-top-color: #4d8b6f;
+}
+
+.loader-ring:nth-child(3) {
+  width: 50%;
+  height: 50%;
+  top: 15px;
+  left: 15px;
+  animation: spin1 4s linear infinite;
+  border-top-color: #2d5a3d;
+}
+
+@keyframes spin1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin2 {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.loader-subtitle {
+  animation: subtitleSlideUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+
+.loader-subtitle p {
+  font-size: 0.85rem;
+  color: #666666;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* Fade out animation when done loading */
+@keyframes loaderFadeOut {
+  from {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.loader-container.fade-out {
+  animation: loaderFadeOut 0.8s ease-out forwards;
+}

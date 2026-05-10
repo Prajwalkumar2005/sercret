@@ -1,0 +1,87 @@
+.heroIntro{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:9vh;
+  opacity:0;
+  transform: translateY(10px);
+  filter: blur(10px);
+  transition: opacity 1.4s cubic-bezier(0.2,0.8,0.2,1), transform 1.8s cubic-bezier(0.2,0.8,0.2,1), filter 1.8s cubic-bezier(0.2,0.8,0.2,1);
+}
+
+.heroIntro--visible{
+  opacity:1;
+  transform: translateY(0px);
+  filter: blur(0px);
+}
+
+.heroIntro__container{
+  width:min(980px, 92vw);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.heroIntro__kicker{
+  font-size:12px;
+  letter-spacing:0.26em;
+  color: rgba(215, 255, 238, 0.70);
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.heroIntro__title{
+  font-size: clamp(34px, 4.8vw, 62px);
+  letter-spacing:0.02em;
+  font-weight:600;
+  color: rgba(245, 248, 255, 0.96);
+  line-height:1.05;
+}
+
+.heroIntro__subtitle{
+  margin-top:14px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  letter-spacing:0.16em;
+  color: rgba(160, 214, 200, 0.85);
+  font-weight:500;
+  text-transform:uppercase;
+}
+
+.heroIntro__subtext{
+  margin-top:22px;
+  font-size: clamp(13px, 1.25vw, 16px);
+  line-height:1.55;
+  color: rgba(215, 255, 238, 0.72);
+  max-width: 66ch;
+  margin-left:auto;
+  margin-right:auto;
+  letter-spacing:0.02em;
+  font-weight: 450;
+  text-wrap: balance;
+}
+
+
+.heroIntro__vignette{
+  position:absolute;
+  inset:-1px;
+  background: radial-gradient(closest-side at 50% 35%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.55) 100%);
+  z-index:1;
+}
+
+.heroIntro__filmGrain{
+  position:absolute;
+  inset:-1px;
+  z-index:0;
+  opacity:0.08;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="180" height="180" filter="url(%23n)" opacity="0.6"/></svg>');
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 520px){
+  .heroIntro{ padding-top: 7vh; }
+  .heroIntro__kicker{ letter-spacing:0.18em; }
+}
+
