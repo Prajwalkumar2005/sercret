@@ -43,18 +43,22 @@ export default function Atmosphere() {
     // ========== ENHANCED FOG SYSTEM ==========
     // Layered-feel depth baseline (3D fog) + additional DepthLayers quads in scene.
     // Readability-first fog tuning: keep it dark, but avoid crushed blacks.
-    const fogColor = 0x0a221b // slightly lighter green-blue
-    scene.fog = new THREE.Fog(fogColor, 4.0, 85)
-    scene.background = new THREE.Color(0x07110f)
+    // Readability-first fog tuning for the first frame.
+    // Keep it cinematic, but reduce green dominance & black crush.
+    const fogColor = 0x0e2b22 // cooler green-blue
+    scene.fog = new THREE.Fog(fogColor, 6.0, 95)
+    scene.background = new THREE.Color(0x0a1213)
 
     // ========== AMBIENT LIGHT ==========
-    // Slight lift for clarity, still cinematic.
-    const ambientLight = new THREE.AmbientLight(0xcad2ff, 0.46)
+    // Lift midtones for legibility.
+    const ambientLight = new THREE.AmbientLight(0xd0dcff, 0.62)
+
     scene.add(ambientLight)
 
     // ========== PRIMARY DIRECTIONAL LIGHT (CINEMATIC MOONLIGHT) ==========
     // Stronger moonlight direction to separate shapes.
-    const directionalLight = new THREE.DirectionalLight(0x8fb0e8, 0.78)
+    const directionalLight = new THREE.DirectionalLight(0x9fc0ff, 0.92)
+
 
     directionalLight.position.set(22, 26, 10)
     directionalLight.target.position.set(0, 1.4, 0)
@@ -80,7 +84,8 @@ export default function Atmosphere() {
     scene.add(directionalLight.target)
 
     // ========== GREENISH RAINFOREST BOUNCE (MID FILL) ==========
-    const fillLight = new THREE.DirectionalLight(0x3f6f61, 0.40)
+    const fillLight = new THREE.DirectionalLight(0x3f6f61, 0.28)
+
 
 
     fillLight.position.set(-18, 14, -14)

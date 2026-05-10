@@ -78,12 +78,8 @@ export default function CinematicScene() {
         {/* Atmospheric effects: fog, lighting */}
         <Atmosphere />
 
-        {/* Rainforest life layers (kept silhouette + minimal for premium composition) */}
+        {/* CLEAN HERO COMPOSITION: keep only primary architecture + silhouettes for readability */}
         <JungleSilhouettes />
-        <HangingVines />
-        <ForegroundLeaves />
-        <PathGlowLights />
-
 
         {/* Depth layers (faux-volumetric foreground/mid/background haze) */}
         <DepthLayers />
@@ -94,18 +90,14 @@ export default function CinematicScene() {
         {/* Architectural rainforest research walkway */}
         <WalkwayFacility />
 
-        {/* In-world observatory entrance branding/signage */}
+        {/* Main observatory focal point */}
         <ObservatoryEntrance />
 
-        {/* Portfolio zone sockets (future project architecture placeholders) */}
+        {/* Project-zone hints (lightweight) */}
         <ZoneSockets />
 
-        {/* Atmosphere motion + subtle moonlight shafts (premium faux volumetrics) */}
-        <AtmosphereMotion />
+        {/* Motion/particles temporarily disabled for hero frame stability */}
 
-        {/* Floating environmental particles (subtle) */}
-
-        <Particles />
 
 
         {/* Scene background color */}
