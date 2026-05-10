@@ -43,21 +43,22 @@ export default function Atmosphere() {
     // ========== ENHANCED FOG SYSTEM ==========
     // Layered-feel depth baseline (3D fog) + additional DepthLayers quads in scene.
     // Readability-first fog tuning: keep it dark, but avoid crushed blacks.
-    // Readability-first fog tuning for the first frame.
-    // Keep it cinematic, but reduce green dominance & black crush.
-    const fogColor = 0x0e2b22 // cooler green-blue
-    scene.fog = new THREE.Fog(fogColor, 6.0, 95)
-    scene.background = new THREE.Color(0x0a1213)
+    // VISIBILITY DEBUG: reduce fog density + green tint.
+    const fogColor = 0x0b1714
+    scene.fog = new THREE.Fog(fogColor, 20.0, 180)
+    scene.background = new THREE.Color(0x071011)
 
     // ========== AMBIENT LIGHT ==========
-    // Lift midtones for legibility.
-    const ambientLight = new THREE.AmbientLight(0xd0dcff, 0.62)
+    // Stronger ambient for readability.
+    const ambientLight = new THREE.AmbientLight(0xe6f0ff, 1.05)
+
 
     scene.add(ambientLight)
 
     // ========== PRIMARY DIRECTIONAL LIGHT (CINEMATIC MOONLIGHT) ==========
     // Stronger moonlight direction to separate shapes.
-    const directionalLight = new THREE.DirectionalLight(0x9fc0ff, 0.92)
+    const directionalLight = new THREE.DirectionalLight(0xbfe1ff, 1.15)
+
 
 
     directionalLight.position.set(22, 26, 10)

@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import * as THREE from 'three'
 
 
+
 // ============================================================================
 // CAMERA RIG: src/components/CameraRig.jsx
 // ============================================================================
@@ -40,40 +41,21 @@ export default function CameraRig() {
   useEffect(() => {
     // Human-scale cinematic framing.
     // Start at the walkway entrance and move left-to-right through the facility.
-    // HERO FRAME (still composition): outside geometry, 3/4 framing toward observatory.
-    camera.fov = 52
-    camera.position.set(-6.2, 1.65, 10.6)
-    camera.lookAt(-0.2, 1.25, -6.2)
+    // DEBUG/HERO STABILIZATION: STATIC camera (no GSAP motion)
+    camera.fov = 48
+    camera.position.set(-8.0, 2.2, 14.0)
+    camera.lookAt(0.0, 1.15, -7.0)
 
+    // Disable GSAP timeline during hero stabilization.
+    return () => {
+      // no-op: skip animation setup
+    }
 
     // Timeline length: 76s loop (slow luxury pacing)
     const timeline = gsap.timeline({ repeat: -1, yoyo: false })
 
-    // First 8s: keep hero still (avoid clipping + allow overlay to read).
-    timeline.to(
-      camera.position,
-      {
-        x: -6.2,
-        y: 1.65,
-        z: 10.6,
-        duration: 8,
-        ease: 'none',
-      },
-      0
-    )
+    // (animation code disabled)
 
-    // Phase 1 (8-26s): entrance reveal -> begin walk forward
-    timeline.to(
-      camera.position,
-      {
-        x: -1.0,
-        y: 1.78,
-        z: 6.8,
-        duration: 18,
-        ease: 'power2.inOut',
-      },
-      8
-    )
 
 
     // Phase 2 (26-48s): travel down the walkway (left leading line)

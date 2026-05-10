@@ -78,11 +78,11 @@ export default function CinematicScene() {
         {/* Atmospheric effects: fog, lighting */}
         <Atmosphere />
 
-        {/* CLEAN HERO COMPOSITION: keep only primary architecture + silhouettes for readability */}
+        {/* DEBUG STABILIZATION: keep primary silhouettes only */}
         <JungleSilhouettes />
 
-        {/* Depth layers (faux-volumetric foreground/mid/background haze) */}
-        <DepthLayers />
+        {/* Depth layers temporarily disabled for visibility */}
+
 
         {/* Ground anchors scene scale + realism */}
         <GroundPlane />
@@ -96,11 +96,13 @@ export default function CinematicScene() {
         {/* Project-zone hints (lightweight) */}
         <ZoneSockets />
 
-        {/* Motion/particles temporarily disabled for hero frame stability */}
+        {/* Particles/atmosphere motion temporarily disabled for hero stabilization */}
 
-
+        {/* TEMP DEBUG LIGHT: place near observatory to verify rendering */}
+        <pointLight position={[0, 3.0, -7.0]} intensity={2.5} color={"#ffffff"} />
 
         {/* Scene background color */}
+
         <color attach="background" args={['#0a0a0a']} />
       </Suspense>
     </Canvas>
